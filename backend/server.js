@@ -34,11 +34,11 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "./frontend/build"))); // Ensure this path is correct
+app.use(express.static(path.join(__dirname, "./fontend/build"))); // Ensure this path is correct
 
 // REST API: Catch-all handler for any other requests
 app.use('*', function(req, res) {
-  res.sendFile(path.join(__dirname, "./frontend/build/index.html")); // Ensure this path is correct
+  res.sendFile(path.join(__dirname, "./fontend/build/index.html")); // Ensure this path is correct
 });
 
 // PORT
