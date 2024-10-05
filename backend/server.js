@@ -32,11 +32,13 @@ app.use(morgan("dev"));
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
-app.use(express.static(path.join(__dirname, "./frontend/build")));
 
-// REST API
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "../frontend/build"))); // Ensure this path is correct
+
+// REST API: Catch-all handler for any other requests
 app.use('*', function(req, res) {
-  res.sendFile(path.join(__dirname, "./frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html")); // Ensure this path is correct
 });
 
 // PORT
